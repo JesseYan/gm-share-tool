@@ -1,11 +1,11 @@
 # coding=utf-8
 
-from urllib import urlencode
-from django.utils.html import strip_tags
 import re
+from urllib import urlencode
 
-from common import Config
+from django.utils.html import strip_tags
 
+from commons.common import Config
 
 _link = re.compile(
     r'(?<!!)\[('

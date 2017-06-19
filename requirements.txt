@@ -1,1 +1,7 @@
 Django==1.7.4
+requests==2.18.1
+redis==2.10.5
+six==1.10.0
+git+ssh://git@git.gengmei.cc/backend/helios.git@v0.4.5#egg=helios==0.4.5
+git+ssh://git@git.gengmei.cc/backend/gm-logging.git@v0.6.0b3#egg=gm-logging==0.6.0b3
+git+ssh://git@git.gengmei.cc/backend/gm-types.git@master
