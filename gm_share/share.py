@@ -4,6 +4,7 @@ import re
 from urllib import urlencode
 
 from django.utils.html import strip_tags
+from django.conf import settings
 
 from gm_share.commons.common import Config
 
@@ -66,14 +67,14 @@ class ShareData(object):
     weibo_share_max_length = 140
     weixin_content_max_length = 200
 
-    def __init__(self, image=None, url='', wechat_title='', wechat_content='', wechat_line='', weibo='', weibo_check_url=''):
+    def __init__(self, image=None, url='', wechat_title='', wechat_content='', wechat_line='', weibo='',):
         self.wechat_title = _striper(wechat_title)
         self.wechat_content = _striper(wechat_content)
         self.wechat_line = _striper(wechat_line)
         self.weibo = weibo
         self.url = url
         self.image = image
-        self.weibo_check_url = weibo_check_url
+        self.weibo_check_url = settings.WEIBO_CHECK_URL
 
         if len(self.wechat_title) > self.weixin_content_max_length:
             self.wechat_title = self.wechat_title[0:self.weixin_content_max_length]
