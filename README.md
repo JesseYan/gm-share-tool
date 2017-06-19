@@ -37,5 +37,5 @@ WX_APP_SECRET = ''
 
 ### weibo:
 ```python
-WEIBO_CHECK_URL = ''
+WEIBO_SHARE_HOST = ''
 ```

@@ -74,7 +74,7 @@ class ShareData(object):
         self.weibo = weibo
         self.url = url
         self.image = image
-        self.weibo_check_url = settings.WEIBO_CHECK_URL
+        self.weibo_share_url = settings.WEIBO_SHARE_HOST
 
         if len(self.wechat_title) > self.weixin_content_max_length:
             self.wechat_title = self.wechat_title[0:self.weixin_content_max_length]
@@ -121,11 +121,11 @@ class ShareData(object):
             }
         }
 
-        """微博升级: 至少含有一个不跨域名的URL"""
-        if self.weibo_check_url not in result['weibo']['content']:
+        """微博升级: 至少含有一个不跨域名的URL; 跟前面保持一个空格"""
+        if self.weibo_share_url not in result['weibo']['content']:
             # 默认放在分享文字后面
-            result['weibo']['content'] = result['weibo']['content'][:self.weibo_share_max_length - len(self.weibo_check_url)] \
-                                         + self.weibo_check_url
+            result['weibo']['content'] = result['weibo']['content'][:self.weibo_share_max_length - len(self.weibo_share_url) - 1] \
+                                         + ' ' + self.weibo_share_url
         return result
 
     @property
@@ -153,9 +153,10 @@ class ShareData(object):
             'wechatline_screenshot': Config.wechatline_screenshot
         }
 
-        """微博升级: 至少含有一个不跨域名的URL"""
-        if self.weibo_check_url not in result['weibo']['content']:
+        """微博升级: 至少含有一个不跨域名的URL; 跟前面保持一个空格"""
+        if self.weibo_share_url not in result['weibo']['content']:
             # 默认放在分享文字后面
-            result['weibo']['content'] = result['weibo']['content'][:self.weibo_share_max_length - len(self.weibo_check_url)] \
-                                         + self.weibo_check_url
+            result['weibo']['content'] = result['weibo']['content'][
+                                         :self.weibo_share_max_length - len(self.weibo_share_url) - 1] \
+                                         + ' ' + self.weibo_share_url
         return result
