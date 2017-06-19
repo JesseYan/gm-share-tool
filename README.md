@@ -1,5 +1,11 @@
 # gm-share-tool
-gm-share, wechat tool
+share-tool: 
+* weichat
+* wechat_line
+* weibo
+* qq
+
+wechat tool:
 
 # rely on list:
 ```shell
