@@ -2,31 +2,30 @@
 
 from __future__ import unicode_literals
 
-import sys
-import re
+import inspect
 import json
+import re
+import sys
 import time
 import traceback
-import inspect
 from urllib import urlencode
-import six
-
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.conf import settings, urls
-from django.core.urlresolvers import reverse
 
 import helios.rpc
-from helios.rpc.exceptions import RPCFaultException
+import six
+from django.conf import settings, urls
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 from gm_logging.django.middleware import get_client_info_of_request
 from gm_types.error import ERROR
+from helios.rpc.exceptions import RPCFaultException
 
-from libs.rpc import get_base_rpc_invoker
-from libs.redis_db import db as cache
-from libs.log import error_logger, exception_logger, info_logger
-from weixin.wx import WxTkApi, WxTkApiErr
-from commons.common import *
-from commons.enums import RPC_ERROR_CODE
+from gm_share.commons.enums import RPC_ERROR_CODE
+from gm_share.commons.common import *
+from gm_share.libs.redis_db import db as cache
+from gm_share.libs.log import error_logger, exception_logger, info_logger
+from gm_share.libs.rpc import get_base_rpc_invoker
+from gm_share.weixin.wx import WxTkApi, WxTkApiErr
 
 
 _context_key = '_the_long_long_long_name_for_dict'

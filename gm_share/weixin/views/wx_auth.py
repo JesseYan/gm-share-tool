@@ -3,8 +3,8 @@ from urllib import urlencode
 
 from django.views.generic.base import RedirectView
 
-from weixin.wx import WxTkApi
 from base import TemplateView
+from gm_share.weixin.wx import WxTkApi
 
 
 class AuthView(RedirectView):

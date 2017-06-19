@@ -1,6 +1,6 @@
 import helios.rpc
-from settings import settings
 
+from gm_share.settings import settings
 
 _RPC_INVOKER = helios.rpc.create_default_invoker(debug=settings.DEBUG).with_config(dump_curl=True)
 

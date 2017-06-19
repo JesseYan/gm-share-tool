@@ -1,5 +1,6 @@
+from django.conf import settings
 import redis
-from settings import settings
+
 
 db = redis.StrictRedis(
     host=settings.REDIS_CONFIG['host'],

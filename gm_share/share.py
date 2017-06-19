@@ -5,7 +5,8 @@ from urllib import urlencode
 
 from django.utils.html import strip_tags
 
-from commons.common import Config
+from gm_share.commons.common import Config
+
 
 _link = re.compile(
     r'(?<!!)\[('
