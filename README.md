@@ -18,8 +18,11 @@ gm-logging
 gm-types
 ```
 
+# update note:
+add version after every change in `__init.py` 
 
-# need config in django
+
+# need config in django setting files
 ### redis:
 ```python
 REDIS_CONFIG = {
